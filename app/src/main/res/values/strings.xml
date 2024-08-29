@@ -5,4 +5,6 @@
     <string name="close">Close</string>
     <string name="walk">Have you taken your 15 minute walk today?</string>
     <string name="clear_water_count">Clear water count</string>
+    <string name="task">Task # %1$s</string>
+    <string name="tasks">Task # %1$s</string>
 </resources>
