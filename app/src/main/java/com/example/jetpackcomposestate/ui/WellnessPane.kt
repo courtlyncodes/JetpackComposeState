@@ -2,17 +2,17 @@ package com.example.jetpackcomposestate.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.toMutableStateList
 import androidx.compose.ui.Modifier
-import com.example.jetpackcomposestate.data.getWellnessTasks
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.jetpackcomposestate.ui.viewmodels.WellnessViewModel
 
 @Composable
-fun WellnessPane(modifier: Modifier = Modifier) {
+fun WellnessPane(modifier: Modifier = Modifier, wellnessViewModel: WellnessViewModel = viewModel()) {
     Column(modifier = modifier) {
         StatefulCounter()
-
-        val list = remember { getWellnessTasks().toMutableStateList() }
-        WellnessTasksList(list = list, onCloseTask = { task -> list.remove(task) })
+        WellnessTasksList(
+            list = wellnessViewModel.tasks,
+            onCheckedTask = { task, checked -> wellnessViewModel.changeTaskChecked(task, checked) },
+            onCloseTask = { task -> wellnessViewModel.removeTask(task) })
     }
 }
