@@ -2,4 +2,7 @@
     <string name="app_name">JetpackComposeState</string>
     <string name="you_ve_had_glasses">You\'ve had %1$s glasses.</string>
     <string name="add_one">Add one</string>
+    <string name="close">Close</string>
+    <string name="walk">Have you taken your 15 minute walk today?</string>
+    <string name="clear_water_count">Clear water count</string>
 </resources>
