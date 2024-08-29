@@ -5,5 +5,5 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun WellnessPane(modifier: Modifier = Modifier) {
-    WaterCounter(modifier)
+    StatefulCounter()
 }

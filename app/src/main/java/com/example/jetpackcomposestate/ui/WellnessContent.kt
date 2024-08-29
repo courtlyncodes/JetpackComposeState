@@ -24,40 +24,29 @@ import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposestate.R
 
 @Composable
-fun WaterCounter(modifier: Modifier = Modifier) {
+fun StatefulCounter(modifier: Modifier = Modifier) {
+    var count by rememberSaveable { mutableIntStateOf(0) }
+    StatelessCounter(count, { count++ }, modifier)
+}
 
+@Composable
+fun StatelessCounter(count: Int, onIncrement: () -> Unit, modifier: Modifier = Modifier) {
     Column(modifier = modifier.padding(16.dp)) {
-        var count by rememberSaveable { mutableIntStateOf(0) }
         if (count > 0) {
-            var showTask by rememberSaveable { mutableStateOf(true) }
-            if (showTask) {
-                WellnessTaskItem(
-                    taskName = stringResource(R.string.walk),
-                    onClose = { showTask = false }
-                )
-            }
-                Text(
-                    text = stringResource(R.string.you_ve_had_glasses, count),
-                    modifier = modifier.padding(16.dp)
-                )
-            }
-            Row {
-                Button(
-                    onClick = { count++ },
-                    enabled = count < 10,
-                    modifier = modifier.padding(top = 8.dp)
-                ) {
-                    Text(stringResource(R.string.add_one))
-                }
-                Button(
-                    onClick = { count = 0 },
-                    modifier = modifier.padding(top = 8.dp)
-                ) {
-                    Text(stringResource(R.string.clear_water_count))
-                }
-            }
+            Text(
+                text = stringResource(R.string.you_ve_had_glasses, count),
+                modifier = modifier.padding(16.dp)
+            )
+        }
+        Button(
+            onClick = onIncrement,
+            enabled = count < 10,
+            modifier = modifier.padding(top = 8.dp)
+        ) {
+            Text(stringResource(R.string.add_one))
         }
     }
+}
 
 @Composable
 fun WellnessTaskItem(
