@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JetpackComposeState</string>
+    <string name="you_ve_had_glasses">You\'ve had %1$s glasses.</string>
 </resources>

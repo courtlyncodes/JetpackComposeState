@@ -7,10 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.example.jetpackcomposestate.ui.WellnessPane
 import com.example.jetpackcomposestate.ui.theme.JetpackComposeStateTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,29 +18,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             JetpackComposeStateTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Courtlyn",
-                        modifier = Modifier.padding(innerPadding)
-
-                    )
+                    WellnessPane(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    JetpackComposeStateTheme {
-        Greeting("Android")
     }
 }
